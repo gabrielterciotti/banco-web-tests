@@ -2,6 +2,7 @@ describe('Login', () => {
   beforeEach(() => {
     //Arrange
     cy.visit('http://localhost:4000')
+    cy.screenshot('apos-visitar-pagina')
 
   })
   
@@ -10,7 +11,9 @@ describe('Login', () => {
     //Act
     cy.get('#username').click().type('julio.lima')
     cy.get('#senha').click().type('123456')
+    cy.screenshot('apos-preencher-dados-validos')
     cy.get('#login-section > .btn').click()
+    cy.screenshot('apos-clicar-no-botao-entrar')
 
     //Assert
     cy.contains('h4', 'Realizar Transferência').should('be.visible')
